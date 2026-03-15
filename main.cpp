@@ -205,6 +205,18 @@ int main() {
     cout << "List backward: ";
     list.print_reverse();
 
+    cout << "Deleting front and back nodes, then trying to print.\n";
+    list.pop_front();
+    list.pop_back();
+    list.print();
+
+    cout << "Choose what node to delete by position: ";
+    int pos; cin >> pos;
+    list.delete_pos(pos);
+
+    cout << "New List forward: ";
+    list.print();
+
     cout << "Deleting list, then trying to print.\n";
     list.~DoublyLinkedList();
     cout << "List forward: ";
