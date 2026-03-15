@@ -76,6 +76,34 @@ public:
         temp->next = newNode;
     }
 
+    void pop_front(){
+        if (!head) return; // Empty list
+
+        Node* temp = head;
+        head = head->next;
+
+        if (head)
+            head->prev = nullptr;
+        else
+            tail = nullptr; // List is now empty
+
+        delete temp;
+    }
+
+    void pop_back() {
+        if (!tail) return; // Empty list
+
+        Node* temp = tail;
+        tail = tail->prev;
+
+        if (tail)
+            tail->next = nullptr;
+        else
+            head = nullptr; // List is now empty
+
+        delete temp;
+    }
+
     void delete_node(int value) {
         if (!head) return; // Empty list
 
@@ -101,7 +129,7 @@ public:
     }
 
     void delete_pos(int p){
-        // 
+        // End function if list is empty or position is invalid
         if (!head) return;
         if (p < 0) {
             cout << "Position must be >= 0." << endl;
@@ -120,6 +148,7 @@ public:
             return;
         }
 
+        // Stitch the previous and next nodes together, bypassing temp
         if (temp->prev) {
             temp->prev->next = temp->next;
         } else {
