@@ -100,6 +100,40 @@ public:
         delete temp;
     }
 
+    void delete_pos(int p){
+        // 
+        if (!head) return;
+        if (p < 0) {
+            cout << "Position must be >= 0." << endl;
+            return;
+        }
+
+        Node* temp = head;
+        // Traverse to the node at position p
+        for (int i = 0; i < p && temp; i++  ){
+            temp = temp->next;
+        }
+
+        // If temp is nullptr, it means the position exceeds the list size
+        if (!temp) {
+            cout << "Position exceeds list size. Node not deleted.\n";
+            return;
+        }
+
+        if (temp->prev) {
+            temp->prev->next = temp->next;
+        } else {
+            head = temp->next;
+        }
+        if (temp->next) {
+            temp->next->prev = temp->prev;
+        } else {
+            tail = temp->prev;
+        }
+        delete temp;
+
+    }
+
     void print() {
         Node* current = head;
         if (!current) return;
