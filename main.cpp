@@ -205,11 +205,13 @@ int main() {
     cout << "List backward: ";
     list.print_reverse();
 
+    // Test deleting front and back nodes, then trying to print.
     cout << "Deleting front and back nodes, then trying to print.\n";
     list.pop_front();
     list.pop_back();
     list.print();
 
+    // Test deleting a node by value, then trying to print.
     cout << "Choose what node to delete by position: ";
     int pos; cin >> pos;
     list.delete_pos(pos);
