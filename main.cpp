@@ -104,7 +104,7 @@ public:
         delete temp;
     }
 
-    void delete_node(int value) {
+    void delete_val(int value) {
         if (!head) return; // Empty list
 
         Node* temp = head;
@@ -138,7 +138,7 @@ public:
 
         Node* temp = head;
         // Traverse to the node at position p
-        for (int i = 0; i < p && temp; i++  ){
+        for (int i = 0; i < p && temp; i++ ){
             temp = temp->next;
         }
 
